@@ -1,0 +1,30 @@
+{
+    "82:ae:5f:47:6e:72": {
+        "ip": "10.83.41.210",
+        "hostname": "Unnamed Device",
+        "vendor": "Unknown Manufacturer",
+        "status": "unknown",
+        "os": "Android 9 (Linux 4.9)",
+        "ports": [
+            53
+        ],
+        "history": [
+            "10.83.41.210"
+        ],
+        "first_seen": "2026-03-29 17:08:09",
+        "last_seen": "2026-03-29 17:10:08"
+    },
+    "ca:fd:bf:c6:62:21": {
+        "ip": "10.26.250.49",
+        "hostname": "Unnamed Device",
+        "vendor": "Unknown Manufacturer",
+        "status": "unknown",
+        "os": "Unknown",
+        "ports": [],
+        "history": [
+            "10.26.250.49"
+        ],
+        "first_seen": "2026-03-31 16:14:10",
+        "last_seen": "2026-03-31 16:20:12"
+    }
+}

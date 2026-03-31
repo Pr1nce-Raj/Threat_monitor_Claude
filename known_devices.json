@@ -1,0 +1,45 @@
+{
+    "36:af:39:60:5f:83": {
+        "ip": "10.83.41.210",
+        "hostname": "Unnamed Device",
+        "vendor": "Unknown Manufacturer",
+        "status": "unknown",
+        "os": "Android 9 (Linux 4.9)",
+        "ports": [
+            53
+        ],
+        "history": [
+            "10.83.41.210"
+        ],
+        "first_seen": "2026-03-29 03:29:48",
+        "last_seen": "2026-03-29 04:00:04"
+    },
+    "1a:06:30:46:85:8d": {
+        "ip": "10.83.41.168",
+        "hostname": "Unnamed Device",
+        "vendor": "Unknown Manufacturer",
+        "status": "unknown",
+        "os": "Unknown",
+        "ports": [],
+        "history": [
+            "10.83.41.168"
+        ],
+        "first_seen": "2026-03-29 04:00:07",
+        "last_seen": "2026-03-29 04:00:07"
+    },
+    "c6:66:91:f8:b7:cb": {
+        "ip": "10.83.41.210",
+        "hostname": "Unnamed Device",
+        "vendor": "Unknown Manufacturer",
+        "status": "unknown",
+        "os": "Android 10 (Linux 4.14)",
+        "ports": [
+            53
+        ],
+        "history": [
+            "10.83.41.210"
+        ],
+        "first_seen": "2026-03-29 04:14:16",
+        "last_seen": "2026-03-29 04:14:31"
+    }
+}

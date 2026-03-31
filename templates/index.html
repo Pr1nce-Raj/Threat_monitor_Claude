@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Network Threat Monitor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:       #0d0f14;
+    --surface:  #141720;
+    --surface2: #1c2030;
+    --border:   rgba(255,255,255,0.07);
+    --border2:  rgba(255,255,255,0.12);
+    --text:     #e8eaf0;
+    --muted:    #6b7280;
+    --green:    #22c97a;
+    --green-bg: rgba(34,201,122,0.10);
+    --red:      #f05252;
+    --red-bg:   rgba(240,82,82,0.10);
+    --amber:    #f6a832;
+    --amber-bg: rgba(246,168,50,0.10);
+    --blue:     #4d9cff;
+    --blue-bg:  rgba(77,156,255,0.10);
+    --font:     'JetBrains Mono', 'Courier New', monospace;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 15px;
+    min-height: 100vh;
+  }
+  /* ── MOBILE RESPONSIVE ── */
+@media (max-width: 768px) {
+  .metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .panels {
+    grid-template-columns: 1fr;   /* stack columns vertically */
+  }
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .topbar-left {
+    flex-wrap: wrap;
+  }
+  .tbl th, .tbl td {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+  /* Hide less important columns on small screens */
+  .tbl th:nth-child(3),
+  .tbl td:nth-child(3),
+  .tbl th:nth-child(6),
+  .tbl td:nth-child(6) {
+    display: none;
+  }
+  .modal {
+    width: 95vw;
+  }
+  .known-tbl th:nth-child(n+4),
+  .known-tbl td:nth-child(n+4) {
+    display: none;   /* hide OS/dates on small screen */
+  }
+}
+
+  /* ── TOP BAR ── */
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .topbar-left { display: flex; align-items: center; gap: 14px; }
+  .logo { font-size: 15px; font-weight: 700; letter-spacing: 0.12em; color: var(--green); }
+  .network-chip {
+    font-size: 12px; padding: 3px 10px; border-radius: 4px;
+    background: var(--surface2); border: 1px solid var(--border2); color: var(--muted);
+  }
+  .network-chip.danger { border-color: var(--red); color: var(--red); }
+  .live-dot {
+    width: 9px; height: 9px; border-radius: 50%; background: var(--green);
+    animation: blink 1.6s ease-in-out infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+  .live-label { font-size: 12px; color: var(--green); letter-spacing: 0.1em; }
+  .last-scan { font-size: 12px; color: var(--muted); }
+  .btn {
+    font-family: var(--font); font-size: 12px; padding: 5px 14px; cursor: pointer;
+    border-radius: 4px; border: 1px solid var(--border2);
+    background: transparent; color: var(--text); letter-spacing: 0.05em;
+    transition: background 0.15s;
+  }
+  .btn:hover { background: var(--surface2); }
+  .btn-alert { border-color: var(--red); color: var(--red); }
+  .btn-alert:hover { background: var(--red-bg); }
+
+  /* ── LAYOUT ── */
+  .main { padding: 20px 24px; }
+  .metrics { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-bottom: 20px; }
+  .metric {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 14px 16px;
+  }
+  .metric-label { font-size: 11px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+  .metric-val { font-size: 34px; font-weight: 700; }
+  .metric-val.green { color: var(--green); }
+  .metric-val.red   { color: var(--red);   }
+  .metric-val.amber { color: var(--amber); }
+  .metric-val.blue  { color: var(--blue);  }
+
+  /* ── PANELS ── */
+  .panels { display: grid; grid-template-columns: 1fr 320px; gap: 16px; margin-bottom: 16px; }
+  .panel {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 6px; overflow: hidden;
+  }
+  .panel-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 16px; border-bottom: 1px solid var(--border);
+  }
+  .panel-title { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .panel-count { font-size: 12px; color: var(--muted); }
+
+  /* ── FILTER TABS ── */
+  .tabs { display: flex; gap: 4px; }
+  .tab {
+    font-family: var(--font); font-size: 11px; padding: 3px 10px; cursor: pointer;
+    border-radius: 3px; border: 1px solid transparent;
+    background: transparent; color: var(--muted); letter-spacing: 0.06em;
+    transition: all 0.1s;
+  }
+  .tab.active { border-color: var(--border2); color: var(--text); background: var(--surface2); }
+
+  /* ── DEVICE TABLE ── */
+  .tbl { width: 100%; border-collapse: collapse; }
+  .tbl th {
+    font-size: 11px; text-align: left; padding: 8px 16px;
+    color: var(--muted); border-bottom: 1px solid var(--border); letter-spacing: 0.08em;
+    text-transform: uppercase; font-weight: 600;
+  }
+  .tbl td { padding: 10px 16px; border-bottom: 1px solid var(--border); vertical-align: middle; font-size: 13px; }
+  .tbl tr:last-child td { border-bottom: none; }
+  .tbl tr.clickable { cursor: pointer; transition: background 0.1s; }
+  .tbl tr.clickable:hover td { background: var(--surface2); }
+
+  .badge {
+    display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 3px;
+    letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700;
+  }
+  .badge-trusted    { background: var(--green-bg); color: var(--green); }
+  .badge-unknown    { background: var(--red-bg);   color: var(--red);   }
+  .badge-suspicious { background: var(--amber-bg); color: var(--amber); }
+  .badge-blocked    { background: var(--red-bg);   color: var(--red);   }
+  .badge-self       { background: var(--blue-bg);  color: var(--blue);  }
+
+  /* NEW device flash badge */
+  .badge-new {
+    display: inline-block; font-size: 10px; padding: 2px 6px; border-radius: 3px;
+    background: var(--amber-bg); color: var(--amber); font-weight: 700;
+    letter-spacing: 0.06em; margin-left: 4px;
+    animation: blink 1s ease-in-out infinite;
+  }
+
+  .port-tag {
+    display: inline-block; font-size: 11px; padding: 1px 5px; border-radius: 3px;
+    border: 1px solid var(--red); color: var(--red); margin: 1px;
+  }
+  .port-tag.safe { border-color: var(--muted); color: var(--muted); }
+
+  /* ── BLUETOOTH ── */
+  #bt-list { max-height: 280px; overflow-y: auto; }
+  .bt-search-wrap {
+    padding: 8px 16px; border-bottom: 1px solid var(--border); background: var(--surface2);
+  }
+  .bt-search-input {
+    width: 100%; background: transparent; border: none; color: var(--text);
+    font-family: var(--font); font-size: 12px; outline: none;
+  }
+  .bt-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 9px 16px; border-bottom: 1px solid var(--border);
+  }
+  .bt-item:last-child { border-bottom: none; }
+  .bt-name { font-size: 13px; }
+  .bt-addr { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .sig-wrap { display: flex; align-items: flex-end; gap: 2px; }
+  .sig-bar { width: 4px; border-radius: 1px; background: var(--border2); }
+  .sig-bar.lit { background: var(--green); }
+  .sig-bar.warn { background: var(--red); }
+
+  /* ── LOG ── */
+  .log-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-bottom: 16px; }
+  .log-body { max-height: 200px; overflow-y: auto; }
+  .log-row { display: flex; gap: 12px; padding: 6px 16px; border-bottom: 1px solid var(--border); }
+  .log-row:last-child { border-bottom: none; }
+  .log-row:hover { background: var(--surface2); }
+  .log-time { color: var(--muted); min-width: 145px; font-size: 12px; }
+  .log-msg { font-size: 12px; flex: 1; }
+  .log-msg.alert { color: var(--red); }
+  .log-msg.warn  { color: var(--amber); }
+  .log-msg.ok    { color: var(--green); }
+
+  /* ── KNOWN DEVICES DB PANEL ── */
+  .known-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-bottom: 16px; }
+  .known-body { max-height: 260px; overflow-y: auto; }
+  .known-tbl { width: 100%; border-collapse: collapse; }
+  .known-tbl th {
+    font-size: 11px; text-align: left; padding: 8px 16px;
+    color: var(--muted); border-bottom: 1px solid var(--border);
+    letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600;
+  }
+  .known-tbl td { padding: 9px 16px; border-bottom: 1px solid var(--border); font-size: 12px; }
+  .known-tbl tr:last-child td { border-bottom: none; }
+  .known-tbl tr:hover td { background: var(--surface2); }
+  .history-chain { font-size: 11px; color: var(--muted); }
+
+  /* ── DETAIL MODAL ── */
+  .overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.6); z-index: 100;
+    align-items: center; justify-content: center;
+  }
+  .overlay.open { display: flex; }
+  .modal {
+    background: var(--surface); border: 1px solid var(--border2);
+    border-radius: 8px; padding: 24px; width: 400px; max-height: 90vh; overflow-y: auto;
+  }
+  .modal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+  .modal-title { font-size: 14px; letter-spacing: 0.08em; font-weight: 600; }
+  .modal-close { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px; }
+  .detail-row {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 13px;
+  }
+  .detail-row:last-of-type { border-bottom: none; }
+  .detail-key { color: var(--muted); }
+  .detail-val { color: var(--text); text-align: right; max-width: 230px; word-break: break-all; }
+  .modal-actions { display: flex; gap: 8px; margin-top: 16px; }
+  .modal-actions .btn { flex: 1; text-align: center; }
+
+  /* ── OFFLINE BANNER ── */
+  .offline-banner {
+    display: none; background: var(--red-bg); border-bottom: 1px solid var(--red);
+    padding: 8px 24px; font-size: 12px; color: var(--red); text-align: center;
+    letter-spacing: 0.06em;
+  }
+  .offline-banner.show { display: block; }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+</style>
+</head>
+<body>
+
+<div class="offline-banner" id="offline-banner">
+  ⚠ Cannot reach scanner API at localhost:5000 — make sure scanner.py is running
+</div>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <span class="logo">[ THREAT MONITOR ]</span>
+    <div class="live-dot" id="live-dot"></div>
+    <span class="live-label" id="live-label">LIVE</span>
+    <span class="network-chip" id="network-label">detecting...</span>
+    <div class="network-chip" id="bandwidth-chip">
+      ↑ <span id="upload-speed">0 KB/s</span>
+      &nbsp;↓ <span id="download-speed">0 KB/s</span>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <span class="last-scan" id="last-scan">Waiting for scan...</span>
+    <button class="btn" id="refresh-btn" onclick="manualRefresh()">⟳ Refresh</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="metrics">
+    <div class="metric">
+      <div class="metric-label">Total Devices</div>
+      <div class="metric-val green" id="m-total">–</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Unknown / Suspicious</div>
+      <div class="metric-val red" id="m-unknown">–</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Open Ports</div>
+      <div class="metric-val amber" id="m-ports">–</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">BT Nearby</div>
+      <div class="metric-val blue" id="m-bt">–</div>
+    </div>
+  </div>
+
+  <div class="panels">
+    <!-- Wi-Fi Devices -->
+    <div class="panel">
+      <div class="panel-head">
+        <span class="panel-title">Wi-Fi Devices</span>
+        <div class="tabs">
+          <button class="tab active" onclick="filterDevices('all',this)">All</button>
+          <button class="tab" onclick="filterDevices('trusted',this)">Trusted</button>
+          <button class="tab" onclick="filterDevices('unknown',this)">Unknown</button>
+          <button class="tab" onclick="filterDevices('suspicious',this)">Suspicious</button>
+          <button class="tab" onclick="filterDevices('blocked',this)">Blocked</button>
+        </div>
+      </div>
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>IP Address</th>
+            <th>Hostname</th>
+            <th>Vendor</th>
+            <th>Status</th>
+            <th>Open Ports</th>
+            <th>Last Seen</th>
+          </tr>
+        </thead>
+        <tbody id="device-tbody">
+          <tr><td colspan="6" style="color:var(--muted);text-align:center;padding:24px;">Waiting for scanner...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Right column -->
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <!-- Bluetooth -->
+      <div class="panel">
+        <div class="panel-head">
+          <span class="panel-title">Bluetooth Nearby</span>
+          <span class="panel-count" id="bt-count">–</span>
+        </div>
+        <div class="bt-search-wrap">
+          <input type="text" class="bt-search-input" id="bt-search" placeholder="Filter devices..." onkeyup="filterBT()">
+        </div>
+        <div id="bt-list">
+          <div style="color:var(--muted);text-align:center;padding:20px;font-size:12px;">Scanning...</div>
+        </div>
+      </div>
+
+      <!-- Dangerous Ports Reference -->
+      <div class="panel">
+        <div class="panel-head"><span class="panel-title">Dangerous Ports</span></div>
+        <div style="padding:10px 16px;">
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:12px;line-height:2;">
+            <span style="color:var(--red);">23</span><span style="color:var(--muted);">Telnet – unencrypted</span>
+            <span style="color:var(--red);">3389</span><span style="color:var(--muted);">RDP – remote desktop</span>
+            <span style="color:var(--red);">5900</span><span style="color:var(--muted);">VNC – remote desktop</span>
+            <span style="color:var(--red);">4444</span><span style="color:var(--muted);">Metasploit C2 default</span>
+            <span style="color:var(--red);">1337</span><span style="color:var(--muted);">Known hacking tool port</span>
+            <span style="color:var(--red);">8080</span><span style="color:var(--muted);">Alt HTTP – review</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Activity Log -->
+  <div class="log-panel">
+    <div class="panel-head">
+      <span class="panel-title">Activity Log</span>
+      <span class="panel-count" id="log-count">–</span>
+    </div>
+    <div class="log-body" id="log-body">
+      <div style="color:var(--muted);text-align:center;padding:20px;font-size:12px;">Waiting for logs...</div>
+    </div>
+  </div>
+
+  <!-- Known Devices Database (from /api/known) -->
+  <div class="known-panel">
+    <div class="panel-head">
+      <span class="panel-title">Known Devices Database</span>
+      <span class="panel-count" id="known-count">–</span>
+    </div>
+    <div class="known-body">
+      <table class="known-tbl">
+        <thead>
+          <tr>
+            <th>MAC Address</th>
+            <th>Vendor</th>
+            <th>Status</th>
+            <th>OS</th>
+            <th>First Seen</th>
+            <th>Last Seen</th>
+            <th>IP History</th>
+          </tr>
+        </thead>
+        <tbody id="known-tbody">
+          <tr><td colspan="7" style="color:var(--muted);text-align:center;padding:20px;">Loading...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<!-- Detail Modal -->
+<div class="overlay" id="overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <div class="modal-head">
+      <span class="modal-title" id="modal-title">Device Details</span>
+      <button class="modal-close" onclick="document.getElementById('overlay').classList.remove('open')">✕</button>
+    </div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+const API = '/api';
+let allDevices = [];
+let allBT = [];
+let currentFilter = 'all';
+const DANGER_PORTS = new Set([23, 1337, 4444, 3389, 5900, 8080]);
+
+// Upload threshold matching scanner.py's 5 MB/s alert
+const UPLOAD_WARN_BYTES = 1 * 1024; // warn chip at 1 MB/s (1024 KB/s)
+
+async function fetchAll() {
+  try {
+    const [status, devices, bt, logs, known] = await Promise.all([
+      fetch(`${API}/status`).then(r => r.json()),
+      fetch(`${API}/devices`).then(r => r.json()),
+      fetch(`${API}/bluetooth`).then(r => r.json()),
+      fetch(`${API}/logs`).then(r => r.json()),
+      fetch(`${API}/known`).then(r => r.json()),
+    ]);
+
+    document.getElementById('offline-banner').classList.remove('show');
+    document.getElementById('live-dot').style.background = 'var(--green)';
+    document.getElementById('live-label').textContent = 'LIVE';
+    document.getElementById('live-label').style.color = 'var(--green)';
+
+    document.getElementById('network-label').textContent = status.network || '–';
+    document.getElementById('last-scan').textContent = status.last_scan ? `Last scan: ${status.last_scan}` : '';
+    document.getElementById('m-total').textContent   = status.total ?? '–';
+    document.getElementById('m-unknown').textContent = status.unknown ?? '–';
+    document.getElementById('m-ports').textContent   = status.open_ports ?? '–';
+    document.getElementById('m-bt').textContent      = status.bt_nearby ?? '–';
+
+    if (status.bandwidth) {
+      document.getElementById('upload-speed').textContent   = status.bandwidth.upload_speed;
+      document.getElementById('download-speed').textContent = status.bandwidth.download_speed;
+      // Warn visually if upload is high (mirrors scanner.py's 5 MB/s threshold)
+      const uploadKB = parseFloat(status.bandwidth.upload_speed);
+      const chip = document.getElementById('bandwidth-chip');
+      chip.classList.toggle('danger', uploadKB >= UPLOAD_WARN_BYTES);
+    }
+
+    allDevices = devices;
+    allBT = bt;
+    renderDevices();
+    renderBT(bt);
+    renderLogs(logs);
+    renderKnown(known);
+
+  } catch (e) {
+    document.getElementById('offline-banner').classList.add('show');
+    document.getElementById('live-dot').style.background = 'var(--red)';
+    document.getElementById('live-label').textContent = 'OFFLINE';
+    document.getElementById('live-label').style.color = 'var(--red)';
+  }
+}
+
+function badgeFor(s) {
+  const map   = { trusted:'badge-trusted', unknown:'badge-unknown', suspicious:'badge-suspicious', blocked:'badge-blocked', self:'badge-self' };
+  const label = { trusted:'Trusted', unknown:'Unknown', suspicious:'Suspicious', blocked:'Blocked', self:'My Device' };
+  return `<span class="badge ${map[s]||'badge-unknown'}">${label[s]||s}</span>`;
+}
+
+function portsHtml(ports) {
+  if (!ports || !ports.length) return `<span style="color:var(--muted);font-size:11px;">none</span>`;
+  return ports.map(p => `<span class="port-tag${DANGER_PORTS.has(p)?'':' safe'}">${p}</span>`).join('');
+}
+
+function renderDevices() {
+  const tbody = document.getElementById('device-tbody');
+  const data  = currentFilter === 'all' ? allDevices : allDevices.filter(d => d.status === currentFilter);
+  if (!data.length) {
+    tbody.innerHTML = `<tr><td colspan="6" style="color:var(--muted);text-align:center;padding:20px;">No devices match this filter.</td></tr>`;
+    return;
+  }
+  tbody.innerHTML = data.map(d => `
+    <tr class="clickable" onclick="showDetail('${d.mac.replace(/:/g,'-')}')">
+      <td style="font-size:12px;">${d.ip}</td>
+      <td>${d.hostname}</td>
+      <td style="color:var(--muted);font-size:12px;">${(d.vendor||'').slice(0,22)}</td>
+      <td>
+        ${badgeFor(d.status)}
+        ${d.is_new ? '<span class="badge-new">NEW</span>' : ''}
+      </td>
+      <td>${portsHtml(d.ports)}</td>
+      <td style="color:var(--muted);font-size:12px;">${d.last_seen||''}</td>
+    </tr>`).join('');
+}
+
+function filterDevices(f, el) {
+  currentFilter = f;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  renderDevices();
+}
+
+function sigBars(rssi) {
+  const abs  = Math.abs(rssi);
+  const bars = [90, 78, 65, 52].map((thresh, i) => {
+    const isLit = abs < thresh;
+    const h     = [6, 10, 14, 18][i];
+    const cls   = isLit ? (abs < 65 ? 'lit' : 'warn') : '';
+    return `<span class="sig-bar${cls?' '+cls:''}" style="height:${h}px;"></span>`;
+  });
+  return `<div class="sig-wrap">${bars.join('')}</div>`;
+}
+
+function renderBT(devices) {
+  const el = document.getElementById('bt-list');
+  document.getElementById('bt-count').textContent = `${devices.length} devices`;
+  if (!devices.length) {
+    el.innerHTML = `<div style="color:var(--muted);text-align:center;padding:20px;font-size:12px;">None found</div>`;
+    return;
+  }
+  el.innerHTML = devices.map(d => `
+    <div class="bt-item">
+      <div>
+        <div class="bt-name" style="color:${d.suspicious?'var(--red)':'var(--text)'};">
+          ${d.suspicious ? '⚠ ' : ''}${d.name}
+        </div>
+        <div class="bt-addr">${d.address}</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span style="font-size:11px;color:var(--muted);">${d.signal}dBm</span>
+        ${sigBars(d.signal)}
+      </div>
+    </div>`).join('');
+}
+
+function filterBT() {
+  const query = document.getElementById('bt-search').value.toLowerCase();
+  const filtered = allBT.filter(d =>
+    d.name.toLowerCase().includes(query) ||
+    d.address.toLowerCase().includes(query)
+  );
+  renderBT(filtered);
+}
+
+function renderLogs(logs) {
+  const el = document.getElementById('log-body');
+  document.getElementById('log-count').textContent = `${logs.length} events`;
+  el.innerHTML = logs.map(l => `
+    <div class="log-row">
+      <span class="log-time">${l.time}</span>
+      <span class="log-msg ${l.type}">${l.msg}</span>
+    </div>`).join('');
+}
+
+// ── NEW: Render /api/known database ──
+function renderKnown(known) {
+  const tbody = document.getElementById('known-tbody');
+  const entries = Object.entries(known);
+  document.getElementById('known-count').textContent = `${entries.length} records`;
+  if (!entries.length) {
+    tbody.innerHTML = `<tr><td colspan="7" style="color:var(--muted);text-align:center;padding:20px;">No records yet</td></tr>`;
+    return;
+  }
+  tbody.innerHTML = entries.map(([mac, d]) => `
+    <tr>
+      <td style="font-size:12px;color:var(--blue);">${mac}</td>
+      <td style="font-size:12px;color:var(--muted);">${(d.vendor||'Unknown').slice(0,20)}</td>
+      <td>${badgeFor(d.status||'unknown')}</td>
+      <td style="font-size:12px;color:var(--muted);">${(d.os||'Unknown').slice(0,18)}</td>
+      <td style="font-size:11px;color:var(--muted);">${d.first_seen||'–'}</td>
+      <td style="font-size:11px;color:var(--muted);">${d.last_seen||'–'}</td>
+      <td class="history-chain">${(d.history||[d.ip]).join(' → ')}</td>
+    </tr>`).join('');
+}
+
+async function showDetail(macDashed) {
+  const mac = macDashed.replace(/-/g, ':');
+  const d   = allDevices.find(x => x.mac === mac);
+  if (!d) return;
+
+  document.getElementById('modal-title').textContent = d.hostname || d.ip;
+  const rows = [
+    ['IP Address',  d.ip],
+    ['MAC Address', d.mac],
+    ['Vendor',      d.vendor || '–'],
+    ['OS (nmap)',   d.os || 'Unknown'],
+    ['Status',      badgeFor(d.status)],
+    ['Open Ports',  d.ports && d.ports.length ? d.ports.join(', ') : 'None'],
+    ['First Seen',  d.first_seen || '–'],
+    ['Last Seen',   d.last_seen || '–'],
+    ['IP History',  (d.history || [d.ip]).join(' → ')],
+  ];
+
+  document.getElementById('modal-body').innerHTML = `
+    ${rows.map(([k,v]) => `
+      <div class="detail-row">
+        <span class="detail-key">${k}</span>
+        <span class="detail-val">${v}</span>
+      </div>`).join('')}
+    <div class="modal-actions">
+      <button class="btn" onclick="trustDevice('${mac}')">✓ Mark Trusted</button>
+      <button class="btn btn-alert" onclick="blockDevice('${mac}')">✕ Block</button>
+    </div>`;
+
+  document.getElementById('overlay').classList.add('open');
+}
+
+function closeModal(e) {
+  if (e.target.id === 'overlay') document.getElementById('overlay').classList.remove('open');
+}
+
+async function trustDevice(mac) {
+  await fetch(`${API}/trust/${mac.replace(/:/g,'-')}`, { method: 'POST' });
+
+  // Optimistically update local state immediately — don't wait for next scan
+  const dev = allDevices.find(x => x.mac === mac);
+  if (dev) {
+    dev.status = 'trusted';
+    dev.is_new = false;
+  }
+  renderDevices();
+
+  document.getElementById('overlay').classList.remove('open');
+  await fetchAll(); // then confirm with fresh server data
+}
+
+async function manualRefresh() {
+  const btn = document.getElementById('refresh-btn');
+  btn.textContent = '⟳ Scanning...';
+  btn.disabled = true;
+
+  // Trigger a real new scan on the backend
+  await fetch(`${API}/scan/now`, { method: 'POST' });
+
+  // Wait 4 seconds for the scan to gather initial ARP results
+  await new Promise(r => setTimeout(r, 4000));
+
+  await fetchAll();
+
+  btn.textContent = '⟳ Refresh';
+  btn.disabled = false;
+}
+
+
+async function blockDevice(mac) {
+  await fetch(`${API}/block/${mac.replace(/:/g,'-')}`, { method: 'POST' });
+  document.getElementById('overlay').classList.remove('open');
+  await fetchAll();
+}
+
+fetchAll();
+setInterval(fetchAll, 15000);
+</script>
+</body>
+</html>

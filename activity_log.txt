@@ -1,0 +1,277 @@
+[2026-03-29 02:27:06] SUSPICIOUS BT: Hidden device at 15:E8:E3:A3:BA:3F
+[2026-03-29 02:27:06] SUSPICIOUS BT: Hidden device at 23:CA:87:D7:1F:DF
+[2026-03-29 02:27:06] SUSPICIOUS BT: Hidden device at 39:2F:6C:04:EF:E6
+[2026-03-29 02:27:06] SUSPICIOUS BT: Hidden device at 31:88:03:4A:9C:BF
+[2026-03-29 02:27:06] Full scan completed. Local IP: 10.83.41.239. Devices found: 2
+[2026-03-29 02:28:30] SUSPICIOUS BT: Hidden device at 23:5A:53:7A:BD:D2
+[2026-03-29 02:28:30] SUSPICIOUS BT: Hidden device at 15:E8:E3:A3:BA:3F
+[2026-03-29 02:28:30] SUSPICIOUS BT: Hidden device at 39:2F:6C:04:EF:E6
+[2026-03-29 02:28:30] SUSPICIOUS BT: Hidden device at 0D:27:88:E6:75:55
+[2026-03-29 02:28:30] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 02:28:30] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 02:29:18] User marked 5c:b4:7e:37:8e:fd as TRUSTED
+[2026-03-29 02:29:49] SUSPICIOUS BT: Hidden device at 39:2F:6C:04:EF:E6
+[2026-03-29 02:29:49] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 02:29:49] SUSPICIOUS BT: Hidden device at 13:CA:D1:53:16:8A
+[2026-03-29 02:29:49] SUSPICIOUS BT: Hidden device at 3E:B6:07:7F:58:46
+[2026-03-29 02:29:49] SUSPICIOUS BT: Hidden device at 3A:10:34:2F:33:B8
+[2026-03-29 02:29:49] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 02:36:54] SUSPICIOUS BT: Hidden device at 32:AF:72:FB:01:63
+[2026-03-29 02:36:54] SUSPICIOUS BT: Hidden device at 13:CA:D1:53:16:8A
+[2026-03-29 02:36:54] SUSPICIOUS BT: Hidden device at 21:51:A0:AB:D6:C4
+[2026-03-29 02:36:54] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 02:36:54] SUSPICIOUS BT: Hidden device at 3E:B6:07:7F:58:46
+[2026-03-29 02:36:54] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 02:38:13] SUSPICIOUS BT: Hidden device at 32:AF:72:FB:01:63
+[2026-03-29 02:38:13] SUSPICIOUS BT: Hidden device at 13:CA:D1:53:16:8A
+[2026-03-29 02:38:13] SUSPICIOUS BT: Hidden device at 3E:B6:07:7F:58:46
+[2026-03-29 02:38:13] SUSPICIOUS BT: Hidden device at 21:51:A0:AB:D6:C4
+[2026-03-29 02:38:13] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 02:38:13] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 02:39:36] User marked 5c:b4:7e:37:8e:fd as TRUSTED
+[2026-03-29 02:39:38] SUSPICIOUS BT: Hidden device at 32:AF:72:FB:01:63
+[2026-03-29 02:39:38] SUSPICIOUS BT: Hidden device at 21:51:A0:AB:D6:C4
+[2026-03-29 02:39:38] SUSPICIOUS BT: Hidden device at 29:19:0F:E5:9C:7B
+[2026-03-29 02:39:38] SUSPICIOUS BT: Hidden device at 27:2F:5F:ED:30:F9
+[2026-03-29 02:39:38] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 02:39:38] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 02:39:44] User marked 5c:b4:7e:37:8e:fd as TRUSTED
+[2026-03-29 02:40:57] SUSPICIOUS BT: Hidden device at 32:AF:72:FB:01:63
+[2026-03-29 02:40:57] SUSPICIOUS BT: Hidden device at 27:2F:5F:ED:30:F9
+[2026-03-29 02:40:57] SUSPICIOUS BT: Hidden device at 15:FE:27:9F:1B:D2
+[2026-03-29 02:40:57] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 02:40:57] SUSPICIOUS BT: Hidden device at 29:19:0F:E5:9C:7B
+[2026-03-29 02:40:57] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 02:42:16] SUSPICIOUS BT: Hidden device at 27:2F:5F:ED:30:F9
+[2026-03-29 02:42:16] SUSPICIOUS BT: Hidden device at 32:AF:72:FB:01:63
+[2026-03-29 02:42:16] SUSPICIOUS BT: Hidden device at 15:FE:27:9F:1B:D2
+[2026-03-29 02:42:16] SUSPICIOUS BT: Hidden device at 29:19:0F:E5:9C:7B
+[2026-03-29 02:42:16] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 02:42:16] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 02:43:40] SUSPICIOUS BT: Hidden device at 27:2F:5F:ED:30:F9
+[2026-03-29 02:43:40] SUSPICIOUS BT: Hidden device at 18:B9:FB:C1:D6:60
+[2026-03-29 02:43:40] SUSPICIOUS BT: Hidden device at 15:FE:27:9F:1B:D2
+[2026-03-29 02:43:40] SUSPICIOUS BT: Hidden device at 1D:70:1E:0A:85:76
+[2026-03-29 02:43:40] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 02:45:42] SUSPICIOUS BT: Hidden device at 1D:70:1E:0A:85:76
+[2026-03-29 02:45:42] SUSPICIOUS BT: Hidden device at 18:B9:FB:C1:D6:60
+[2026-03-29 02:45:42] SUSPICIOUS BT: Hidden device at 27:2F:5F:ED:30:F9
+[2026-03-29 02:45:42] SUSPICIOUS BT: Hidden device at 00:50:B1:33:56:E5
+[2026-03-29 02:45:42] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 02:45:42] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 02:46:09] User marked 5c:b4:7e:37:8e:fd as TRUSTED
+[2026-03-29 02:47:01] SUSPICIOUS BT: Hidden device at 18:B9:FB:C1:D6:60
+[2026-03-29 02:47:01] SUSPICIOUS BT: Hidden device at 27:2F:5F:ED:30:F9
+[2026-03-29 02:47:01] SUSPICIOUS BT: Hidden device at 00:50:B1:33:56:E5
+[2026-03-29 02:47:01] SUSPICIOUS BT: Hidden device at 1D:70:1E:0A:85:76
+[2026-03-29 02:47:01] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 02:47:11] User marked 5c:b4:7e:37:8e:fd as TRUSTED
+[2026-03-29 02:47:15] User marked 5c:b4:7e:37:8e:fd as BLOCKED
+[2026-03-29 02:47:23] User marked 5c:b4:7e:37:8e:fd as TRUSTED
+[2026-03-29 02:47:44] User marked 5c:b4:7e:37:8e:fd as BLOCKED
+[2026-03-29 02:47:47] User marked 5c:b4:7e:37:8e:fd as TRUSTED
+[2026-03-29 02:48:21] SUSPICIOUS BT: Hidden device at 18:B9:FB:C1:D6:60
+[2026-03-29 02:48:21] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 02:48:21] SUSPICIOUS BT: Hidden device at 27:2F:5F:ED:30:F9
+[2026-03-29 02:48:21] SUSPICIOUS BT: Hidden device at 1D:70:1E:0A:85:76
+[2026-03-29 02:48:21] SUSPICIOUS BT: Hidden device at 00:50:B1:33:56:E5
+[2026-03-29 02:48:21] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 02:49:40] SUSPICIOUS BT: Hidden device at 18:B9:FB:C1:D6:60
+[2026-03-29 02:49:40] SUSPICIOUS BT: Hidden device at 00:A7:EC:B6:D9:57
+[2026-03-29 02:49:40] SUSPICIOUS BT: Hidden device at 00:50:B1:33:56:E5
+[2026-03-29 02:49:40] SUSPICIOUS BT: Hidden device at 15:26:40:65:40:45
+[2026-03-29 02:49:40] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 02:55:53] SUSPICIOUS BT: Hidden device at 3A:9B:5E:68:3B:A4
+[2026-03-29 02:55:53] SUSPICIOUS BT: Hidden device at 00:A7:EC:B6:D9:57
+[2026-03-29 02:55:53] SUSPICIOUS BT: Hidden device at 1B:22:72:EA:6E:B3
+[2026-03-29 02:55:53] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 02:56:02] FIREWALL: Unblocked MAC 36:af:39:60:5f:83
+[2026-03-29 02:56:02] User marked 36:af:39:60:5f:83 as TRUSTED
+[2026-03-29 02:56:22] FIREWALL: Blocked IP 10.83.41.210 (MAC: 36:af:39:60:5f:83)
+[2026-03-29 02:56:22] User marked 36:af:39:60:5f:83 as BLOCKED
+[2026-03-29 02:56:29] FIREWALL: Unblocked MAC 36:af:39:60:5f:83
+[2026-03-29 02:56:29] User marked 36:af:39:60:5f:83 as TRUSTED
+[2026-03-29 02:57:18] SUSPICIOUS BT: Hidden device at 3A:9B:5E:68:3B:A4
+[2026-03-29 02:57:18] SUSPICIOUS BT: Hidden device at 00:A7:EC:B6:D9:57
+[2026-03-29 02:57:18] SUSPICIOUS BT: Hidden device at 2A:60:F9:B6:95:43
+[2026-03-29 02:57:18] SUSPICIOUS BT: Hidden device at 5F:69:7B:F0:D2:0C
+[2026-03-29 02:57:18] SUSPICIOUS BT: Hidden device at 1B:22:72:EA:6E:B3
+[2026-03-29 02:57:18] SUSPICIOUS BT: Hidden device at 1D:5A:B9:2A:70:6A
+[2026-03-29 02:57:18] SUSPICIOUS BT: Hidden device at 79:36:43:35:05:33
+[2026-03-29 02:57:18] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 02:57:27] FIREWALL: Unblocked MAC 5c:b4:7e:37:8e:fd
+[2026-03-29 02:57:27] User marked 5c:b4:7e:37:8e:fd as TRUSTED
+[2026-03-29 02:58:37] SUSPICIOUS BT: Hidden device at 04:38:71:98:B4:03
+[2026-03-29 02:58:37] SUSPICIOUS BT: Hidden device at 5C:34:94:9E:DD:63
+[2026-03-29 02:58:37] SUSPICIOUS BT: Hidden device at 00:A7:EC:B6:D9:57
+[2026-03-29 02:58:37] SUSPICIOUS BT: Hidden device at 1D:5A:B9:2A:70:6A
+[2026-03-29 02:58:37] SUSPICIOUS BT: Hidden device at 1B:22:72:EA:6E:B3
+[2026-03-29 02:58:37] SUSPICIOUS BT: Hidden device at 3A:9B:5E:68:3B:A4
+[2026-03-29 02:58:37] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 02:58:48] FIREWALL: Blocked IP 10.83.41.80 (MAC: 5c:b4:7e:37:8e:fd)
+[2026-03-29 02:58:48] User marked 5c:b4:7e:37:8e:fd as BLOCKED
+[2026-03-29 02:59:57] SUSPICIOUS BT: Hidden device at 21:DE:77:9F:0D:EC
+[2026-03-29 02:59:57] SUSPICIOUS BT: Hidden device at 04:38:71:98:B4:03
+[2026-03-29 02:59:57] SUSPICIOUS BT: Hidden device at 3A:9B:5E:68:3B:A4
+[2026-03-29 02:59:57] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 02:59:57] SUSPICIOUS BT: Hidden device at 30:C2:0B:13:28:B4
+[2026-03-29 02:59:57] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 03:01:16] SUSPICIOUS BT: Hidden device at 3A:9B:5E:68:3B:A4
+[2026-03-29 03:01:16] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 03:01:16] SUSPICIOUS BT: Hidden device at 30:C2:0B:13:28:B4
+[2026-03-29 03:01:16] SUSPICIOUS BT: Hidden device at 21:DE:77:9F:0D:EC
+[2026-03-29 03:01:16] SUSPICIOUS BT: Hidden device at 32:34:C6:E5:3B:97
+[2026-03-29 03:01:16] SUSPICIOUS BT: Hidden device at 15:73:C2:65:1A:C0
+[2026-03-29 03:01:16] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 03:02:35] SUSPICIOUS BT: Hidden device at 30:C2:0B:13:28:B4
+[2026-03-29 03:02:35] SUSPICIOUS BT: Hidden device at 34:9D:67:B1:A1:69
+[2026-03-29 03:02:35] SUSPICIOUS BT: Hidden device at 21:DE:77:9F:0D:EC
+[2026-03-29 03:02:35] SUSPICIOUS BT: Hidden device at 15:73:C2:65:1A:C0
+[2026-03-29 03:02:35] SUSPICIOUS BT: Hidden device at 32:34:C6:E5:3B:97
+[2026-03-29 03:02:35] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 03:04:00] SUSPICIOUS BT: Hidden device at 21:DE:77:9F:0D:EC
+[2026-03-29 03:04:00] SUSPICIOUS BT: Hidden device at 1E:AF:3E:5C:70:BA
+[2026-03-29 03:04:00] SUSPICIOUS BT: Hidden device at 32:34:C6:E5:3B:97
+[2026-03-29 03:04:00] SUSPICIOUS BT: Hidden device at 30:C2:0B:13:28:B4
+[2026-03-29 03:04:00] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 03:05:18] SUSPICIOUS BT: Hidden device at 30:C2:0B:13:28:B4
+[2026-03-29 03:05:18] SUSPICIOUS BT: Hidden device at 1F:DE:FE:D5:26:DF
+[2026-03-29 03:05:18] SUSPICIOUS BT: Hidden device at 32:34:C6:E5:3B:97
+[2026-03-29 03:05:18] SUSPICIOUS BT: Hidden device at 21:DE:77:9F:0D:EC
+[2026-03-29 03:05:18] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 03:05:18] SUSPICIOUS BT: Hidden device at 15:73:C2:65:1A:C0
+[2026-03-29 03:05:18] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 03:06:38] SUSPICIOUS BT: Hidden device at 1F:DE:FE:D5:26:DF
+[2026-03-29 03:06:38] SUSPICIOUS BT: Hidden device at 15:73:C2:65:1A:C0
+[2026-03-29 03:06:38] SUSPICIOUS BT: Hidden device at 32:34:C6:E5:3B:97
+[2026-03-29 03:06:38] SUSPICIOUS BT: Hidden device at 21:DE:77:9F:0D:EC
+[2026-03-29 03:06:38] SUSPICIOUS BT: Hidden device at 30:C2:0B:13:28:B4
+[2026-03-29 03:06:38] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 03:06:38] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 03:06:51] FIREWALL: Unblocked MAC 5c:b4:7e:37:8e:fd
+[2026-03-29 03:06:51] User marked 5c:b4:7e:37:8e:fd as TRUSTED
+[2026-03-29 03:07:57] SUSPICIOUS BT: Hidden device at 1F:DE:FE:D5:26:DF
+[2026-03-29 03:07:57] SUSPICIOUS BT: Hidden device at 21:DE:77:9F:0D:EC
+[2026-03-29 03:07:57] SUSPICIOUS BT: Hidden device at 0F:A8:2E:C6:9B:71
+[2026-03-29 03:07:57] SUSPICIOUS BT: Hidden device at 32:34:C6:E5:3B:97
+[2026-03-29 03:07:57] SUSPICIOUS BT: Hidden device at 30:ED:F9:34:65:40
+[2026-03-29 03:07:57] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 03:09:16] SUSPICIOUS BT: Hidden device at 1D:B7:9D:5D:6F:CB
+[2026-03-29 03:09:16] SUSPICIOUS BT: Hidden device at 0F:A8:2E:C6:9B:71
+[2026-03-29 03:09:16] SUSPICIOUS BT: Hidden device at 1F:DE:FE:D5:26:DF
+[2026-03-29 03:09:16] SUSPICIOUS BT: Hidden device at 32:34:C6:E5:3B:97
+[2026-03-29 03:09:16] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 03:10:55] SUSPICIOUS BT: Hidden device at 1F:DE:FE:D5:26:DF
+[2026-03-29 03:10:55] SUSPICIOUS BT: Hidden device at 0F:A8:2E:C6:9B:71
+[2026-03-29 03:10:55] SUSPICIOUS BT: Hidden device at 1D:B7:9D:5D:6F:CB
+[2026-03-29 03:10:55] SUSPICIOUS BT: Hidden device at 0C:36:1E:06:9A:EC
+[2026-03-29 03:10:55] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 03:10:55] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 03:12:14] SUSPICIOUS BT: Hidden device at 1F:DE:FE:D5:26:DF
+[2026-03-29 03:12:14] SUSPICIOUS BT: Hidden device at 1D:B7:9D:5D:6F:CB
+[2026-03-29 03:12:14] SUSPICIOUS BT: Hidden device at 10:66:11:6C:C6:81
+[2026-03-29 03:12:14] SUSPICIOUS BT: Hidden device at 0C:36:1E:06:9A:EC
+[2026-03-29 03:12:14] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 03:13:39] SUSPICIOUS BT: Hidden device at 1D:B7:9D:5D:6F:CB
+[2026-03-29 03:13:39] SUSPICIOUS BT: Hidden device at 1F:DE:FE:D5:26:DF
+[2026-03-29 03:13:39] SUSPICIOUS BT: Hidden device at 10:66:11:6C:C6:81
+[2026-03-29 03:13:39] SUSPICIOUS BT: Hidden device at 0C:36:1E:06:9A:EC
+[2026-03-29 03:13:39] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 03:14:58] SUSPICIOUS BT: Hidden device at 1F:DE:FE:D5:26:DF
+[2026-03-29 03:14:58] SUSPICIOUS BT: Hidden device at 1D:B7:9D:5D:6F:CB
+[2026-03-29 03:14:58] SUSPICIOUS BT: Hidden device at 0C:36:1E:06:9A:EC
+[2026-03-29 03:14:58] SUSPICIOUS BT: Hidden device at 10:66:11:6C:C6:81
+[2026-03-29 03:14:58] SUSPICIOUS BT: Hidden device at 30:ED:F9:34:65:40
+[2026-03-29 03:14:58] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 03:14:58] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 03:17:58] SUSPICIOUS BT: Hidden device at 1D:B7:9D:5D:6F:CB
+[2026-03-29 03:17:58] SUSPICIOUS BT: Hidden device at 10:66:11:6C:C6:81
+[2026-03-29 03:17:58] SUSPICIOUS BT: Hidden device at 0C:36:1E:06:9A:EC
+[2026-03-29 03:17:58] SUSPICIOUS BT: Hidden device at 0B:0D:33:35:C5:4A
+[2026-03-29 03:17:58] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 03:18:14] FIREWALL: Unblocked MAC 5c:b4:7e:37:8e:fd
+[2026-03-29 03:18:14] User marked 5c:b4:7e:37:8e:fd as TRUSTED
+[2026-03-29 03:18:30] FIREWALL: Unblocked MAC 5c:b4:7e:37:8e:fd
+[2026-03-29 03:18:30] User marked 5c:b4:7e:37:8e:fd as TRUSTED
+[2026-03-29 03:18:37] SUSPICIOUS BT: Hidden device at 10:66:11:6C:C6:81
+[2026-03-29 03:18:37] SUSPICIOUS BT: Hidden device at 1D:B7:9D:5D:6F:CB
+[2026-03-29 03:18:37] SUSPICIOUS BT: Hidden device at 0B:0D:33:35:C5:4A
+[2026-03-29 03:18:37] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 03:18:37] SUSPICIOUS BT: Hidden device at 0C:36:1E:06:9A:EC
+[2026-03-29 03:18:37] Manual scan triggered. Devices found: 3
+[2026-03-29 03:19:17] SUSPICIOUS BT: Hidden device at 10:66:11:6C:C6:81
+[2026-03-29 03:19:17] SUSPICIOUS BT: Hidden device at 3E:07:19:30:0F:9E
+[2026-03-29 03:19:17] SUSPICIOUS BT: Hidden device at 0B:0D:33:35:C5:4A
+[2026-03-29 03:19:17] SUSPICIOUS BT: Hidden device at 0C:36:1E:06:9A:EC
+[2026-03-29 03:19:17] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 03:20:36] SUSPICIOUS BT: Hidden device at 12:7F:E6:BB:23:1E
+[2026-03-29 03:20:36] SUSPICIOUS BT: Hidden device at 0B:0D:33:35:C5:4A
+[2026-03-29 03:20:36] SUSPICIOUS BT: Hidden device at 3E:07:19:30:0F:9E
+[2026-03-29 03:20:36] SUSPICIOUS BT: Hidden device at 2E:D4:6B:2D:77:BE
+[2026-03-29 03:20:36] SUSPICIOUS BT: Hidden device at 30:E9:66:33:10:1D
+[2026-03-29 03:20:36] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 03:21:55] SUSPICIOUS BT: Hidden device at 3E:07:19:30:0F:9E
+[2026-03-29 03:21:55] SUSPICIOUS BT: Hidden device at 0B:0D:33:35:C5:4A
+[2026-03-29 03:21:55] SUSPICIOUS BT: Hidden device at 2E:D4:6B:2D:77:BE
+[2026-03-29 03:21:55] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 03:21:55] SUSPICIOUS BT: Hidden device at 12:7F:E6:BB:23:1E
+[2026-03-29 03:21:55] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 03:23:17] SUSPICIOUS BT: Hidden device at 12:7F:E6:BB:23:1E
+[2026-03-29 03:23:17] SUSPICIOUS BT: Hidden device at 3E:07:19:30:0F:9E
+[2026-03-29 03:23:17] SUSPICIOUS BT: Hidden device at 0B:0D:33:35:C5:4A
+[2026-03-29 03:23:17] SUSPICIOUS BT: Hidden device at 2E:D4:6B:2D:77:BE
+[2026-03-29 03:23:17] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 03:23:17] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 03:24:32] SUSPICIOUS BT: Hidden device at 0B:0D:33:35:C5:4A
+[2026-03-29 03:24:32] SUSPICIOUS BT: Hidden device at 3E:07:19:30:0F:9E
+[2026-03-29 03:24:32] SUSPICIOUS BT: Hidden device at 2E:D4:6B:2D:77:BE
+[2026-03-29 03:24:32] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 03:24:32] SUSPICIOUS BT: Hidden device at 12:7F:E6:BB:23:1E
+[2026-03-29 03:24:32] Full scan completed. Local IP: 10.83.41.239. Devices found: 2
+[2026-03-29 03:25:10] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 03:25:10] SUSPICIOUS BT: Hidden device at 3E:07:19:30:0F:9E
+[2026-03-29 03:25:10] SUSPICIOUS BT: Hidden device at 0B:0D:33:35:C5:4A
+[2026-03-29 03:25:10] SUSPICIOUS BT: Hidden device at 2E:D4:6B:2D:77:BE
+[2026-03-29 03:25:10] SUSPICIOUS BT: Hidden device at 12:7F:E6:BB:23:1E
+[2026-03-29 03:25:10] Manual scan triggered. Devices found: 3
+[2026-03-29 03:25:57] SUSPICIOUS BT: Hidden device at 2B:43:39:52:B5:F8
+[2026-03-29 03:25:57] SUSPICIOUS BT: Hidden device at 12:7F:E6:BB:23:1E
+[2026-03-29 03:25:57] SUSPICIOUS BT: Hidden device at 3E:07:19:30:0F:9E
+[2026-03-29 03:25:57] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 03:25:57] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 03:27:15] SUSPICIOUS BT: Hidden device at 12:7F:E6:BB:23:1E
+[2026-03-29 03:27:15] SUSPICIOUS BT: Hidden device at 2B:43:39:52:B5:F8
+[2026-03-29 03:27:15] SUSPICIOUS BT: Hidden device at 3E:07:19:30:0F:9E
+[2026-03-29 03:27:15] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 03:28:35] SUSPICIOUS BT: Hidden device at 3E:07:19:30:0F:9E
+[2026-03-29 03:28:35] SUSPICIOUS BT: Hidden device at 2B:43:39:52:B5:F8
+[2026-03-29 03:28:35] SUSPICIOUS BT: Hidden device at 01:45:A8:84:2C:A6
+[2026-03-29 03:28:35] SUSPICIOUS BT: Hidden device at 0B:98:13:50:35:FB
+[2026-03-29 03:28:35] SUSPICIOUS BT: Hidden device at 37:92:7A:7A:0B:CB
+[2026-03-29 03:28:35] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 03:29:53] SUSPICIOUS BT: Hidden device at 2B:43:39:52:B5:F8
+[2026-03-29 03:29:53] SUSPICIOUS BT: Hidden device at 37:92:7A:7A:0B:CB
+[2026-03-29 03:29:53] SUSPICIOUS BT: Hidden device at 0B:98:13:50:35:FB
+[2026-03-29 03:29:53] SUSPICIOUS BT: Hidden device at 3C:11:F9:45:55:F8
+[2026-03-29 03:29:53] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 03:29:53] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 03:58:50] SUSPICIOUS BT: Hidden device at 39:C8:66:16:A6:C6
+[2026-03-29 03:58:50] SUSPICIOUS BT: Hidden device at 3B:34:71:07:E5:02
+[2026-03-29 03:58:50] SUSPICIOUS BT: Hidden device at 48:86:D5:C7:38:12
+[2026-03-29 03:58:50] Full scan completed. Local IP: 10.83.41.239. Devices found: 2
+[2026-03-29 04:00:12] SUSPICIOUS BT: Hidden device at 39:C8:66:16:A6:C6
+[2026-03-29 04:00:12] SUSPICIOUS BT: Hidden device at 37:6D:6D:DC:29:6D
+[2026-03-29 04:00:12] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 04:00:12] Full scan completed. Local IP: 10.83.41.239. Devices found: 3
+[2026-03-29 04:14:21] SUSPICIOUS BT: Hidden device at 0C:FE:4A:2F:95:88
+[2026-03-29 04:14:21] SUSPICIOUS BT: Hidden device at 01:58:48:09:55:AD
+[2026-03-29 04:14:21] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 04:14:21] SUSPICIOUS BT: Hidden device at EC:AD:3C:FC:EC:9A
+[2026-03-29 04:14:21] SUSPICIOUS BT: Hidden device at 17:A8:B8:CE:16:2D
+[2026-03-29 04:14:21] Full scan completed. Local IP: 10.83.41.239. Devices found: 2
+[2026-03-29 04:14:36] SUSPICIOUS BT: Hidden device at 0C:FE:4A:2F:95:88
+[2026-03-29 04:14:36] SUSPICIOUS BT: Hidden device at 79:1A:34:45:C2:99
+[2026-03-29 04:14:36] SUSPICIOUS BT: Hidden device at 74:7C:02:A6:6F:B9
+[2026-03-29 04:14:36] SUSPICIOUS BT: Hidden device at 6E:4D:16:41:58:0B
+[2026-03-29 04:14:36] SUSPICIOUS BT: Hidden device at 49:C0:3E:1A:13:92
+[2026-03-29 04:14:36] Manual scan triggered. Devices found: 2
