@@ -1,0 +1,10 @@
+known_devices.json
+activity_log.txt
+bt_devices.json
+build/
+dist/
+*.spec
+__pycache__/
+*.pyc
+*.exe
+icon.ico
